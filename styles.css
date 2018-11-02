@@ -1,0 +1,79 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to right, #f857a6, #ff5858);
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    background-color: white;
+    width: 60vw;
+    border-radius: 10px;
+    padding: 10px 30px 30px 30px;
+    max-width: 500px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.completed {
+    text-decoration: line-through;
+}
+
+li {
+    padding: 10px 20px; 
+}
+
+li:hover {
+    background-color: #eee;
+    border-radius: 10px;
+}
+
+
+img {
+    position: absolute;
+    right: 45px;
+}
+
+img:hover , .add:hover, .complete-btn:hover {
+    cursor: pointer;
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    padding: 15px 0;
+    width: 95%;
+}
+
+input[type="text"] {
+    font-size: 15px;
+    padding-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.complete-btn {
+    padding: 5px 10px;
+    border: 1px solid;
+    color: #ff69b4;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.complete-btn:hover {
+    color: white;
+    background: #ff69b4;
+}
+
+.add {
+    margin: 25px 0 0 0;
+    padding: 17px;
+    color: white;
+    background: #ff69b4;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.add:hover {
+    background-color: #ff1493;
+}
