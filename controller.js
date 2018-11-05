@@ -37,9 +37,17 @@ function TodoController() {
         vm.todoList.splice(index, 1);
     }
 
-    vm.addClassCompleted = (index, todoItem)  => {
-        vm.todoList.splice(index, 1, {todo: todoItem, completed: true});
+    vm.addClassCompleted = (index)  => {
+        vm.todoList[index].completed = true
     }
+
+    vm.editTask = (index) => {
+        let todo = vm.todoList[index].todo;
+        let result = prompt("Edit Task", todo);
+        if (result !== null){
+          vm.todoList[index].todo = result;
+        }
+      }
 }
 
 // getter syntax

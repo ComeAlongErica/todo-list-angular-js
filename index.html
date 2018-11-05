@@ -21,8 +21,8 @@
                 <li ng-Class="{
                     'completed': todo.completed === true}" 
                     ng-repeat="todo in $ctrl.todoList | filter: $ctrl.filterList track by $index">
-                        <button class="complete-btn" ng-if="todo.completed != true" ng-click="$ctrl.addClassCompleted($index, todo.todo)";">Complete</button>
-                        <span>{{todo.todo}}</span><img ng-click="$ctrl.removeTodo($index)" src="x-delete.svg">
+                        <button class="complete-btn" ng-if="todo.completed != true" ng-click="$ctrl.addClassCompleted($ctrl.todoList.indexOf(todo));"">Complete</button>
+                        <span ng-click="$ctrl.editTask($ctrl.todoList.indexOf(todo));">{{todo.todo}}</span><img ng-click="$ctrl.removeTodo($ctrl.todoList.indexOf(todo))" src="x-delete.svg">
                 </li>
             </ol>
         </section>
