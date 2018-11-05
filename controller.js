@@ -3,7 +3,7 @@ function TodoController() {
     const vm = this; //vm stands for View Model
 
     vm.todoList = [
-   
+
         {
             todo: "be sexy",
             completed: false
@@ -25,27 +25,27 @@ function TodoController() {
     ];
 
     vm.addTodo = (addTodo) => {
-        vm.todoList.push(angular.copy({todo: addTodo, completed: false}));
+        vm.todoList.push(angular.copy({ todo: addTodo, completed: false }));
         console.log(vm.todoList);
     }
 
     vm.todoCompleted = (index, todo, completed) => {
-        vm.todoList.splice(index, {todo, completed});
+        vm.todoList.splice(index, { todo, completed });
     }
 
-    vm.removeTodo = (index)  => {
+    vm.removeTodo = (index) => {
         vm.todoList.splice(index, 1);
     }
 
-    vm.addClassCompleted = (index)  => {
+    vm.addClassCompleted = (index) => {
         vm.todoList[index].completed = true
     }
 
-    vm.editTask = (index) => {
-        let todo = vm.todoList[index].todo;
-        let result = prompt("Edit Task", todo);
-        if (result !== null){
-          vm.todoList[index].todo = result;
+
+    vm.editTask = (index, value) => {
+        let todo = vm.todoList[index].todo;;
+        if (value !== null){
+          vm.todoList[index].todo = value;
         }
       }
 }

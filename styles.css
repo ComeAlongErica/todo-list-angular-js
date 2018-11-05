@@ -15,8 +15,17 @@ body {
     max-width: 500px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
+
 .completed {
     text-decoration: line-through;
+}
+
+.incomplete[type="text"] {
+    background-color: transparent;
+    border: 0px solid;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
 }
 
 li {
@@ -38,14 +47,14 @@ img:hover , .add:hover, .complete-btn:hover {
     cursor: pointer;
 }
 
-input {
+.reg-input {
     border-radius: 5px;
     border: 1px solid #bbb;
     padding: 15px 0;
     width: 95%;
 }
 
-input[type="text"] {
+.reg-input[type="text"] {
     font-size: 15px;
     padding-left: 20px;
     font-family: 'Open Sans', sans-serif;

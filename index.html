@@ -15,20 +15,36 @@
         <h1>TODO List</h1>
         <p>A place to store the things you have to do!</p>
 
-        <input type="text" ng-model="$ctrl.filterList" placeholder="Filter your to-dos">
+        <input class="reg-input" type="text" ng-model="$ctrl.filterList" placeholder="Filter your to-dos">
         <section>
             <ol>
                 <li ng-Class="{
                     'completed': todo.completed === true}" 
                     ng-repeat="todo in $ctrl.todoList | filter: $ctrl.filterList track by $index">
-                        <button class="complete-btn" ng-if="todo.completed != true" ng-click="$ctrl.addClassCompleted($ctrl.todoList.indexOf(todo));"">Complete</button>
-                        <span ng-click="$ctrl.editTask($ctrl.todoList.indexOf(todo));">{{todo.todo}}</span><img ng-click="$ctrl.removeTodo($ctrl.todoList.indexOf(todo))" src="x-delete.svg">
+                        
+                    <button 
+                        class="complete-btn" 
+                        ng-if="todo.completed != true" 
+                        ng-click="$ctrl.addClassCompleted($ctrl.todoList.indexOf(todo));">Complete</button>
+                        
+                        <span  
+                        ng-if="todo.completed != false">{{todo.todo}}</span>
+
+                        <input 
+                        class="incomplete" 
+                        type="text" 
+                        ng-model="todo.todo"
+                        ng-blur="$ctrl.editTask($ctrl.todoList.indexOf(todo), todo.todo)"
+                        ng-if="todo.completed != true" 
+                        placeholder="{{todo.todo}}">
+
+                        <img ng-click="$ctrl.removeTodo($ctrl.todoList.indexOf(todo));" src="x-delete.svg">
                 </li>
             </ol>
         </section>
 
         <form ng-submit="$ctrl.addTodo($ctrl.todo);">
-            <input type="text" ng-model="$ctrl.todo" placeholder="Add your to-do">
+            <input class="reg-input" type="text" ng-model="$ctrl.todo" placeholder="Add your to-do">
             <button class="add">Add</button>
         </form>
     </section>
