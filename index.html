@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO List</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -18,19 +19,23 @@
         <input class="reg-input" type="text" ng-model="$ctrl.filterList" placeholder="Filter your to-dos">
         <section>
             <ol>
+
                 <li ng-Class="{
                     'completed': todo.completed === true}" 
                     ng-repeat="todo in $ctrl.todoList | filter: $ctrl.filterList track by $index">
                         
+                    <!-- button only shows for incompleted class -->
                     <button 
                         class="complete-btn" 
                         ng-if="todo.completed != true" 
                         ng-click="$ctrl.addClassCompleted($ctrl.todoList.indexOf(todo));">Complete</button>
                         
-                        <span  
+                    <!-- task show from completed classes -->
+                    <span  
                         ng-if="todo.completed != false">{{todo.todo}}</span>
 
-                        <input 
+                    <!-- edit input field for incompleted items -->
+                    <input 
                         class="incomplete" 
                         type="text" 
                         ng-model="todo.todo"
@@ -38,7 +43,7 @@
                         ng-if="todo.completed != true" 
                         placeholder="{{todo.todo}}">
 
-                        <img ng-click="$ctrl.removeTodo($ctrl.todoList.indexOf(todo));" src="x-delete.svg">
+                    <i ng-click="$ctrl.removeTodo($ctrl.todoList.indexOf(todo));" class="fas fa-times"></i>
                 </li>
             </ol>
         </section>

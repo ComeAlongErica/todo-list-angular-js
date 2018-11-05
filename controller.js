@@ -26,7 +26,6 @@ function TodoController() {
 
     vm.addTodo = (addTodo) => {
         vm.todoList.push(angular.copy({ todo: addTodo, completed: false }));
-        console.log(vm.todoList);
     }
 
     vm.todoCompleted = (index, todo, completed) => {

@@ -38,12 +38,18 @@ li:hover {
 }
 
 
-img {
+i {
     position: absolute;
     right: 45px;
+    font-size: 20px;
+    padding-top: 3px;
 }
 
-img:hover , .add:hover, .complete-btn:hover {
+i:hover {
+    color: #ff1493;
+}
+
+i:hover, .add:hover, .complete-btn:hover {
     cursor: pointer;
 }
 
