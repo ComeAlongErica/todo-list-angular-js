@@ -21,33 +21,35 @@
             <ol>
 
                 <li ng-Class="{
-                    'completed': todo.completed === true}" 
-                    ng-repeat="todo in $ctrl.todoList | filter: $ctrl.filterList track by $index">
+                    'completed': task.completed === true}" 
+                    ng-repeat="task in $ctrl.todoList | filter: $ctrl.filterList track by $index">
                         
                     <!-- button only shows for incompleted class -->
                     <button 
                         class="complete-btn" 
-                        ng-if="todo.completed != true" 
-                        ng-click="$ctrl.addClassCompleted($ctrl.todoList.indexOf(todo));">Complete</button>
+                        ng-if="task.completed != true" 
+                        ng-click="$ctrl.addClassCompleted($ctrl.todoList.indexOf(task));">Complete</button>
                         
                     <!-- task show from completed classes -->
                     <span  
-                        ng-if="todo.completed != false">{{todo.todo}}</span>
+                        ng-if="task.completed != false">{{task.todo}}</span>
 
                     <!-- edit input field for incompleted items -->
                     <input 
                         class="incomplete" 
                         type="text" 
-                        ng-model="todo.todo"
-                        ng-blur="$ctrl.editTask($ctrl.todoList.indexOf(todo), todo.todo)"
-                        ng-if="todo.completed != true" 
-                        placeholder="{{todo.todo}}">
+                        ng-model="task.todo"
+                        ng-blur="$ctrl.editTask($ctrl.todoList.indexOf(task), task.todo)"
+                        ng-if="task.completed != true" 
+                        placeholder="{{task.todo}}">
 
-                    <i ng-click="$ctrl.removeTodo($ctrl.todoList.indexOf(todo));" class="fas fa-times"></i>
+                    <!-- clear icon -->
+                    <i ng-click="$ctrl.removeTodo($ctrl.todoList.indexOf(task));" class="fas fa-times"></i>
                 </li>
             </ol>
         </section>
 
+        <!-- form for adding a new task -->
         <form ng-submit="$ctrl.addTodo($ctrl.todo);">
             <input class="reg-input" type="text" ng-model="$ctrl.todo" placeholder="Add your to-do">
             <button class="add">Add</button>
