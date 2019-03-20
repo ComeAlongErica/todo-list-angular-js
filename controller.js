@@ -8,10 +8,10 @@ function TodoController() {
             completed: false
         }, {
             todo: "don't get murdered",
-            completed: true
+            completed: false
         }, {
             todo: "be happy",
-            completed: false
+            completed: true
         }, {
             todo: "take your vitamins",
             completed: true
